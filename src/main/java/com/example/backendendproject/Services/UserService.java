@@ -1,13 +1,8 @@
 package com.example.backendendproject.Services;
 
-import com.example.backendendproject.Controller.UserDto;
+import com.example.backendendproject.Dtos.UserDto;
 import com.example.backendendproject.Models.User;
 import com.example.backendendproject.Repositories.UserRepository;
-import com.example.endprojectsmechapplication.Dtos.UserDto;
-import com.example.endprojectsmechapplication.Exceptions.RecordNotFoundException;
-import com.example.endprojectsmechapplication.Exceptions.UsernameNotFoundException;
-import com.example.endprojectsmechapplication.Models.User;
-import com.example.endprojectsmechapplication.Repositories.UserRepository;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Service;

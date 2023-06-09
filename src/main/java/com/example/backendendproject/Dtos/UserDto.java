@@ -1,4 +1,4 @@
-package com.example.backendendproject.Controller;
+package com.example.backendendproject.Dtos;
 
 import lombok.Getter;
 import lombok.Setter;
