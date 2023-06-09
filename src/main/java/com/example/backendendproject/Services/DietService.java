@@ -2,7 +2,6 @@ package com.example.backendendproject.Services;
 
 import com.example.backendendproject.Dtos.DietDto;
 import com.example.backendendproject.Models.Diet;
-import com.example.backendendproject.Models.Goal;
 import com.example.backendendproject.Repositories.DietRepository;
 import com.example.endprojectsmechapplication.Dtos.DietDto;
 import com.example.endprojectsmechapplication.Exceptions.DeleteRecordException;

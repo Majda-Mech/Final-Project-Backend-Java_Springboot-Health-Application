@@ -1,7 +1,6 @@
 package com.example.backendendproject.Dtos;
 
 import com.example.backendendproject.Models.Diet;
-import com.example.backendendproject.Models.Goal;
 import com.example.endprojectsmechapplication.Models.Diet;
 import com.example.endprojectsmechapplication.Models.Goal;
 import lombok.Getter;
