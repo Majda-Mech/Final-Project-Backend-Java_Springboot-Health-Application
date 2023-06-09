@@ -1,6 +1,7 @@
 package com.example.backendendproject.Controller;
 
 import com.example.backendendproject.Dtos.UserDto;
+import com.example.backendendproject.Exceptions.BadRequestException;
 import com.example.backendendproject.Services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
