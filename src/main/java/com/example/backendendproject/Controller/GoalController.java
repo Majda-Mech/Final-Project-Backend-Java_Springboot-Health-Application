@@ -1,6 +1,8 @@
 package com.example.backendendproject.Controller;
 
 import com.example.backendendproject.Dtos.GoalDto;
+import com.example.backendendproject.Models.Goal;
+import com.example.backendendproject.Services.GoalService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
