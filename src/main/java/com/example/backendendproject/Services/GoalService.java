@@ -1,6 +1,9 @@
 package com.example.backendendproject.Services;
 
 import com.example.backendendproject.Dtos.GoalDto;
+import com.example.backendendproject.Exceptions.DeleteRecordException;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.UpdateRecordException;
 import com.example.backendendproject.Models.Goal;
 import com.example.backendendproject.Repositories.GoalRepository;
 import org.springframework.stereotype.Service;

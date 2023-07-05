@@ -1,5 +1,7 @@
 package com.example.backendendproject.Dtos;
 
+import com.example.backendendproject.Models.Product;
+import com.example.backendendproject.Models.Recipe;
 import lombok.Getter;
 import lombok.Setter;
 import javax.validation.constraints.NotBlank;

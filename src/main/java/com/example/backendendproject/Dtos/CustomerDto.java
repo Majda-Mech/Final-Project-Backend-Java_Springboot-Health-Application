@@ -1,7 +1,6 @@
 package com.example.backendendproject.Dtos;
 
 import com.example.backendendproject.Models.Customer;
-import com.example.endprojectsmechapplication.Models.Customer;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;

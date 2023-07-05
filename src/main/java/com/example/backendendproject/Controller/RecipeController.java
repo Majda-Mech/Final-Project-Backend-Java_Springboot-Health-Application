@@ -43,7 +43,7 @@ public class RecipeController {
     }
 
     @GetMapping("")
-    public ResponseEntity<Iterable<RecipeOutputDto>> getAllRecipes() {
+    public ResponseEntity<Iterable<RecipeDto>> getAllRecipes() {
         return ResponseEntity.ok(RecipeService.getAllRecipes());
     }
 

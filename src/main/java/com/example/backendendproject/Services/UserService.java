@@ -1,6 +1,8 @@
 package com.example.backendendproject.Services;
 
 import com.example.backendendproject.Dtos.UserDto;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.UsernameNotFoundException;
 import com.example.backendendproject.Models.User;
 import com.example.backendendproject.Repositories.UserRepository;
 import lombok.Getter;

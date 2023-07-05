@@ -1,17 +1,14 @@
 package com.example.backendendproject.Services;
 
 import com.example.backendendproject.Dtos.DietDto;
+import com.example.backendendproject.Exceptions.DeleteRecordException;
+import com.example.backendendproject.Exceptions.NoRelatedObjectFoundException;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.UpdateRecordException;
 import com.example.backendendproject.Models.Diet;
+import com.example.backendendproject.Models.Goal;
 import com.example.backendendproject.Repositories.DietRepository;
-import com.example.endprojectsmechapplication.Dtos.DietDto;
-import com.example.endprojectsmechapplication.Exceptions.DeleteRecordException;
-import com.example.endprojectsmechapplication.Exceptions.NoRelatedObjectFoundException;
-import com.example.endprojectsmechapplication.Exceptions.RecordNotFoundException;
-import com.example.endprojectsmechapplication.Exceptions.UpdateRecordException;
-import com.example.endprojectsmechapplication.Models.Diet;
-import com.example.endprojectsmechapplication.Models.Goal;
-import com.example.endprojectsmechapplication.Repositories.DietRepository;
-import com.example.endprojectsmechapplication.Repositories.GoalRepository;
+import com.example.backendendproject.Repositories.GoalRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -78,6 +75,7 @@ public class DietService {
             repos.save(newDiet);
             return new DietDto(newDiet);
         }
+
         else {
             throw new UpdateRecordException("No Diet found with this ID");
         }

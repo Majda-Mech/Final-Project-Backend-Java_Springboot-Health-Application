@@ -1,14 +1,11 @@
 package com.example.backendendproject.Services;
 
 import com.example.backendendproject.Dtos.CustomerDto;
+import com.example.backendendproject.Exceptions.DeleteRecordException;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.UpdateRecordException;
 import com.example.backendendproject.Models.Customer;
 import com.example.backendendproject.Repositories.CustomerRepository;
-import com.example.endprojectsmechapplication.Dtos.CustomerDto;
-import com.example.endprojectsmechapplication.Exceptions.DeleteRecordException;
-import com.example.endprojectsmechapplication.Exceptions.RecordNotFoundException;
-import com.example.endprojectsmechapplication.Exceptions.UpdateRecordException;
-import com.example.endprojectsmechapplication.Models.Customer;
-import com.example.endprojectsmechapplication.Repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

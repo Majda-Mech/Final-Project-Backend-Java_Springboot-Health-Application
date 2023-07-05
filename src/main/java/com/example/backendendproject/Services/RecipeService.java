@@ -1,10 +1,12 @@
 package com.example.backendendproject.Services;
 
 import com.example.backendendproject.Dtos.RecipeDto;
+import com.example.backendendproject.Exceptions.DeleteRecordException;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.UpdateRecordException;
 import com.example.backendendproject.Models.Recipe;
 import com.example.backendendproject.Repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
-
 import javax.validation.Valid;
 import java.util.ArrayList;
 
@@ -30,12 +32,12 @@ public class RecipeService {
         return newRecipe.getId();
     }
 
-    public Iterable<RecipeOutputDto> getAllRecipes() {
+    public Iterable<RecipeDto> getAllRecipes() {
         Iterable<Recipe> recipeList = repos.findAll();
-        ArrayList<RecipeOutputDto> recipeDtoList = new ArrayList<>();
+        ArrayList<RecipeDto> recipeDtoList = new ArrayList<>();
 
         for (Recipe recipe : recipeList) {
-            RecipeOutputDto newRecipeDto = new RecipeOutputDto(recipe);
+            RecipeDto newRecipeDto = new RecipeDto(recipe);
             recipeDtoList.add(newRecipeDto);
         }
         return recipeDtoList;
@@ -67,5 +69,4 @@ public class RecipeService {
             throw new UpdateRecordException("No Recipe found with this ID");
         }
     }
-
 }

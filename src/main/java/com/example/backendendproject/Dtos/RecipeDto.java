@@ -2,9 +2,6 @@ package com.example.backendendproject.Dtos;
 
 import com.example.backendendproject.Models.Product;
 import com.example.backendendproject.Models.Recipe;
-import com.example.endprojectsmechapplication.Models.Product;
-import com.example.endprojectsmechapplication.Models.Recipe;
-
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
