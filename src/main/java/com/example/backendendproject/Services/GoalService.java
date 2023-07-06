@@ -33,7 +33,7 @@ public class GoalService {
         ArrayList<GoalDto> goalDtoList = new ArrayList<>();
 
         for (Goal goal : goalList) {
-            GoalDto newGoalDto = new GoalDto(goal);
+            GoalDto newGoalDto = goalToDto(goal);
             goalDtoList.add(newGoalDto);
         }
         return goalDtoList;
@@ -49,7 +49,7 @@ public class GoalService {
     public GoalDto getGoalDtoById(Long id) {
         if (repos.findById(id).isPresent()) {
             Goal goal   = repos.findById(id).get();
-            GoalDto newGoalDto = new GoalDto(goal);
+            GoalDto newGoalDto = goalToDto(goal);
             return newGoalDto;
         } else {
             throw new RecordNotFoundException("No Goal found with this ID");
@@ -60,12 +60,20 @@ public class GoalService {
         if(repos.findById(id).isPresent()) {
             newGoal.setId(id);
             repos.save(newGoal);
-            return new GoalDto(newGoal);
+            return goalToDto(newGoal);
         }
         else {
             throw new UpdateRecordException("No Goal found with this ID");
         }
     }
 
+//hier hebben we een mapper gemaakt die vertaald de goal naar goal dto.
+    private GoalDto goalToDto(Goal newGoal) {
+        GoalDto goalDto = new GoalDto();
+        goalDto.description = newGoal.getDescription();
+        goalDto.name = newGoal.getName();
+        goalDto.diet = newGoal.getDiet();
 
+        return goalDto;
+    }
 }

@@ -13,6 +13,7 @@ public class Diet {
 
     @Id
     @Column(name = "goal_id", nullable = false)
+    @GeneratedValue
     private Long id;
     private String name;
     private String description;
