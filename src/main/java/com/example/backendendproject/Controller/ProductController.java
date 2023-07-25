@@ -22,9 +22,9 @@ public class ProductController {
         this.prodService = prodService;
     }
 
-    @PostMapping("{id}")
-    public ResponseEntity<String> createProduct(@Valid @PathVariable Long id, @RequestBody ProductDto productDto, BindingResult br) {
-        Long savedProduct = prodService.createProduct(productDto, id);
+    @PostMapping("{recipeId}")
+    public ResponseEntity<String> createProduct(@Valid @PathVariable Long recipeId, @RequestBody ProductDto productDto, BindingResult br) {
+        Long savedProduct = prodService.createProduct(productDto, recipeId);
         if (br.hasErrors()) {
             StringBuilder sb = new StringBuilder();
             for (FieldError fe : br.getFieldErrors()) {

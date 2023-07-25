@@ -6,12 +6,14 @@ import com.example.backendendproject.Exceptions.NoRelatedObjectFoundException;
 import com.example.backendendproject.Exceptions.RecordNotFoundException;
 import com.example.backendendproject.Exceptions.UpdateRecordException;
 import com.example.backendendproject.Models.Product;
+import com.example.backendendproject.Models.Recipe;
 import com.example.backendendproject.Repositories.ProductRepository;
 import com.example.backendendproject.Repositories.RecipeRepository;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Setter
 @Getter
@@ -26,9 +28,12 @@ public class ProductService {
     }
 
     public Long createProduct(ProductDto productDto, Long recipeId) {
-        if (recRepo.findById(recipeId).isPresent()) {
-            Product newProduct = new Product();
 
+        Optional<Recipe> optionalRecipe = recRepo.findById(recipeId);
+
+        if(optionalRecipe.isPresent()) {
+
+            Product newProduct = new Product();
             newProduct.setName(productDto.name);
             newProduct.setDescription(productDto.description);
 
@@ -46,7 +51,7 @@ public class ProductService {
         ArrayList<ProductDto> productDtoList = new ArrayList<>();
 
         for (Product product : productList) {
-            ProductDto newProductDto = new ProductDto(product);
+            ProductDto newProductDto = new ProductDto();
             productDtoList.add(newProductDto);
         }
         return productDtoList;
@@ -55,7 +60,10 @@ public class ProductService {
     public ProductDto getProductById(Long id) {
         if (prodRepo.findById(id).isPresent()) {
             Product product = prodRepo.findById(id).get();
-            ProductDto newProductDto = new ProductDto(product);
+            ProductDto newProductDto = new ProductDto();
+            newProductDto.setDescription(product.getDescription());
+            newProductDto.setName(product.getName());
+            newProductDto.setRecipe(product.getRecipe());
             return newProductDto;
         } else {
             throw new RecordNotFoundException("No Goal found with this ID");
@@ -67,7 +75,7 @@ public class ProductService {
         if(prodRepo.findById(id).isPresent()) {
             newProduct.setId(id);
             prodRepo.save(newProduct);
-            return new ProductDto(newProduct);
+            return new ProductDto();
         }
         else {
             throw new UpdateRecordException("No Diet found with this ID");

@@ -50,7 +50,7 @@ public class GoalController {
                     ServletUriComponentsBuilder
                             .fromCurrentContextPath()
                             .path("/goals/" + savedGoal).toUriString());
-            return ResponseEntity.created(uri).body("Goal has been created");
+            return ResponseEntity.created(uri).body("Goal has been created with id: " + savedGoal);
         }
     }
 

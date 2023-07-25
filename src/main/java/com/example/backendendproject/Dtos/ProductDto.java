@@ -22,6 +22,6 @@ public class ProductDto {
         this.recipe = recipe;
     }
 
-    public ProductDto(Product product) {
+    public ProductDto() {
     }
 }

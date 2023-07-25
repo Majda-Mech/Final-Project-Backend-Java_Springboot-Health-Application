@@ -26,7 +26,7 @@ public class GoalService {
         newGoal.setDiet(goalDto.diet);
 
         Goal savedGoal = repos.save(newGoal);
-        return newGoal.getId();
+        return savedGoal.getId();
     }
     public Iterable<GoalDto> getAllGoals() {
         Iterable<Goal> goalList = repos.findAll();
