@@ -17,10 +17,10 @@ See below the homepage, were the user can find all functionalities of the applic
 
 ## Features
 All CRUD operations are available on the recipes, supplies, ingredients and instructions.
-Managing users, including authentication
-Send email
-File upload
-Security
+- Managing users, including authentication
+- Send email
+- File upload
+- Security
 The application uses 2 roles: user and admin.
 
 
