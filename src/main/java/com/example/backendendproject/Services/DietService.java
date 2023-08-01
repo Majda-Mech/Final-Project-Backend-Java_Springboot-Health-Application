@@ -55,7 +55,12 @@ public class DietService {
     public DietDto getDietById(Long id) {
         if (repos.findById(id).isPresent()) {
             Diet diet      = repos.findById(id).get();
-            DietDto newDietDto = new DietDto(diet);
+            DietDto newDietDto = new DietDto();
+
+            newDietDto.setDescription(diet.getDescription());
+            newDietDto.setName(diet.getName());
+            newDietDto.setGoal(diet.getGoal());
+
             return newDietDto;
         } else {
             throw new RecordNotFoundException("No Goal found with this ID");
