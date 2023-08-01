@@ -18,6 +18,16 @@ public class GoalService {
         this.repos = repos;
     }
 
+    public GoalDto goalToGoalDto(Goal goal) {
+        GoalDto newGoal = new GoalDto();
+
+        newGoal.setDiet(goal.getDiet());
+        newGoal.setName(goal.getName());
+        newGoal.setDescription(goal.getDescription());
+
+        return newGoal;
+    }
+
     public Long createGoal(GoalDto goalDto) {
         Goal newGoal = new Goal();
 
@@ -33,7 +43,7 @@ public class GoalService {
         ArrayList<GoalDto> goalDtoList = new ArrayList<>();
 
         for (Goal goal : goalList) {
-            GoalDto newGoalDto = new GoalDto(goal);
+            GoalDto newGoalDto = goalToGoalDto(goal);
             goalDtoList.add(newGoalDto);
         }
         return goalDtoList;
@@ -49,7 +59,7 @@ public class GoalService {
     public GoalDto getGoalDtoById(Long id) {
         if (repos.findById(id).isPresent()) {
             Goal goal   = repos.findById(id).get();
-            GoalDto newGoalDto = new GoalDto(goal);
+            GoalDto newGoalDto = goalToGoalDto(goal);
             return newGoalDto;
         } else {
             throw new RecordNotFoundException("No Goal found with this ID");
@@ -59,13 +69,11 @@ public class GoalService {
 
         if(repos.findById(id).isPresent()) {
             newGoal.setId(id);
-            repos.save(newGoal);
-            return new GoalDto(newGoal);
+            Goal goal = repos.save(newGoal);
+            return goalToGoalDto(goal);
         }
         else {
             throw new UpdateRecordException("No Goal found with this ID");
         }
     }
-
-
 }

@@ -22,9 +22,9 @@ public class DietController {
         this.dietService = dietService;
     }
 
-    @PostMapping("{id}")
-    public ResponseEntity<String> createDiet(@Valid @PathVariable Long id, @RequestBody DietDto dietDto, BindingResult br) {
-        Long savedDiet = dietService.createDiet(dietDto, id);
+    @PostMapping("/{goalId}")
+    public ResponseEntity<String> createDiet(@Valid @PathVariable Long goalId, @RequestBody DietDto dietDto, BindingResult br) {
+        Long savedDiet = dietService.createDiet(dietDto, goalId);
         if (br.hasErrors()) {
             StringBuilder sb = new StringBuilder();
             for (FieldError fe : br.getFieldErrors()) {

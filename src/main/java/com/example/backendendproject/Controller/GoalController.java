@@ -35,7 +35,6 @@ public class GoalController {
 
     @PostMapping("")
     public ResponseEntity<String> createGoal(@Valid @RequestBody GoalDto goalDto, BindingResult br) {
-        Long savedGoal = service.createGoal(goalDto);
         if (br.hasErrors()) {
             StringBuilder sb = new StringBuilder();
             for (FieldError fe : br.getFieldErrors()) {
@@ -45,7 +44,7 @@ public class GoalController {
             }
             return new ResponseEntity<>(sb.toString(), HttpStatus.BAD_REQUEST);
         } else {
-
+            Long savedGoal = service.createGoal(goalDto);
             URI uri = URI.create(
                     ServletUriComponentsBuilder
                             .fromCurrentContextPath()

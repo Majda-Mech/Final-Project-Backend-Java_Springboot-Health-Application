@@ -15,6 +15,4 @@ public class GoalDto {
     public String description;
     public Diet diet;
 
-    public GoalDto(Goal newGoal) {
-    }
 }

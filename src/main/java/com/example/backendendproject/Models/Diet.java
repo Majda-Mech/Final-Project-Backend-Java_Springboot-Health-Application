@@ -2,6 +2,7 @@ package com.example.backendendproject.Models;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -12,6 +13,8 @@ import javax.persistence.*;
 public class Diet {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq")
+    @GenericGenerator(name = "seq", strategy = "increment")
     @Column(name = "goal_id", nullable = false)
     private Long id;
     private String name;

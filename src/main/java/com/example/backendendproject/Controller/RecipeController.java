@@ -22,9 +22,9 @@ public class RecipeController {
         this.RecipeService = recipeService;
     }
 
-    @PostMapping("{id}")
-    public ResponseEntity<String> createRecipe(@Valid @PathVariable Long id, @RequestBody RecipeDto recipeDto, BindingResult br) {
-        Long savedRecipe = RecipeService.createRecipe(recipeDto, id);
+    @PostMapping("")
+    public ResponseEntity<String> createRecipe(@Valid @RequestBody RecipeDto recipeDto, BindingResult br) {
+        Long savedRecipe = RecipeService.createRecipe(recipeDto);
         if (br.hasErrors()) {
             StringBuilder sb = new StringBuilder();
             for (FieldError fe : br.getFieldErrors()) {
@@ -37,7 +37,7 @@ public class RecipeController {
             URI uri = URI.create(
                     ServletUriComponentsBuilder
                             .fromCurrentContextPath()
-                            .path("/recipies/" + savedRecipe).toUriString());
+                            .path("/recipes/" + savedRecipe).toUriString());
             return ResponseEntity.created(uri).body("Product has been created");
         }
     }

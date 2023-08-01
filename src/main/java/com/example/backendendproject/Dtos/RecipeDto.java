@@ -2,9 +2,18 @@ package com.example.backendendproject.Dtos;
 
 import com.example.backendendproject.Models.Product;
 import com.example.backendendproject.Models.Recipe;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class RecipeDto {
 
     @NotBlank(message ="Please insert a name for the Recipe" )
