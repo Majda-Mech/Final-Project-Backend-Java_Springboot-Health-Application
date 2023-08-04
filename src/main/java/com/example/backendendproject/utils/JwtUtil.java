@@ -7,7 +7,6 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,7 +17,7 @@ import java.util.function.Function;
 public class JwtUtil
 {
 
-    private final static String SECRET_KEY = "secret";
+    private final static String SECRET_KEY = RandomStringGenerator.generateAlphaNumeric(256);
 
     private Key getSigningKey() {
         byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
