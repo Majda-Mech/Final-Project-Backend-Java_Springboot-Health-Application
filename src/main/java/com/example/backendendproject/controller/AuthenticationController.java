@@ -41,7 +41,7 @@ public class AuthenticationController {
         String username = authenticationRequest.getUsername();
         String password = authenticationRequest.getPassword();
 
-        try {
+        try {git stat
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(username, password)
             );
