@@ -45,41 +45,41 @@ INSERT INTO recipes (id, name,is_vegan, is_vegetarian) VALUES
 (2200, 'Recipe 2', false, true),
 (3300, 'Recipe 3', false, false),
 (4400, 'Recipe 4', true, true),
-                                                         (5500, 'Recipe 5', false, true),
-                                                         (6666, 'Recipe 6', true, true),
-                                                         (7666, 'Recipe 7', false, false),
-                                                         (8666, 'Recipe 8', false, true),
-                                                         (9666, 'Recipe 9', true, true),
-                                                         (1066, 'Recipe 10', true, false);
+(5500, 'Recipe 5', false, true),
+(6666, 'Recipe 6', true, true),
+(7666, 'Recipe 7', false, false),
+(8666, 'Recipe 8', false, true),
+(9666, 'Recipe 9', true, true),
+(1066, 'Recipe 10', true, false);
 
 INSERT INTO products (id, name, description, recipe_id) VALUES
-                                                            (1001, 'Product 1', 'Description for Product 1', 1200),
-                                                            (2001, 'Product 2', 'Description for Product 2', 2200),
-                                                            (3001, 'Product 3', 'Description for Product 3', 3300),
-                                                            (4000, 'Product 4', 'Description for Product 4', 4400),
-                                                            (5000, 'Product 5', 'Description for Product 5', 5500),
-                                                            (6000, 'Product 6', 'Description for Product 6', 6666),
-                                                            (7000, 'Product 7', 'Description for Product 7', 7666),
-                                                            (8000, 'Product 8', 'Description for Product 8', 8666),
-                                                            (9000, 'Product 9', 'Description for Product 9', 9666),
-                                                            (1100, 'Product 10', 'Description for Product 10', 1066);
+(1001, 'Product 1', 'Description for Product 1', 1200),
+(2001, 'Product 2', 'Description for Product 2', 2200),
+(3001, 'Product 3', 'Description for Product 3', 3300),
+(4000, 'Product 4', 'Description for Product 4', 4400),
+(5000, 'Product 5', 'Description for Product 5', 5500),
+(6000, 'Product 6', 'Description for Product 6', 6666),
+(7000, 'Product 7', 'Description for Product 7', 7666),
+(8000, 'Product 8', 'Description for Product 8', 8666),
+(9000, 'Product 9', 'Description for Product 9', 9666),
+(1100, 'Product 10', 'Description for Product 10', 1066);
 
 INSERT INTO customers (id, dob, first_name, last_name, gender, weight, height, is_vegan, is_vegetarian)
 VALUES
-    (1000, '1992-11-09', 'Milord','Snow','Water bender',100,180,true, false),
-    (2000, '1990-10-19', 'Test1','Apple','Mega tron',120,180,false, false),
-    (3000, '1892-08-29', 'test2','Pewpew','Avatar',130,180,true, true);
+(1000, '1992-11-09', 'Milord','Snow','Water bender',100,180,true, false),
+(2000, '1990-10-19', 'Test1','Apple','Mega tron',120,180,false, false),
+(3000, '1892-08-29', 'test2','Pewpew','Avatar',130,180,true, true);
 
 INSERT INTO roles (rolename) VALUES ('admin');
 INSERT INTO roles (rolename) VALUES ('user');
 -- user pw = user
 --admin pw= admin
-INSERT INTO users (username, password, email)
-VALUES ('admin', '$2a$12$LvdSeFO11/uQxL6waMd1EemHxEpeefd/l12fkvHzl1g04kzPCRaK2','user@user.nl');
 
-INSERT INTO users (username, password, email)
-VALUES ('user', '$2a$12$JCLEjYML2gSHtMxgHug8meGpDtjGOOB3f0w6FSNxdZjpC2i7lMbn2', 'user@user.nl'
-       );
+INSERT INTO users (username, password, email, enabled)
+VALUES ('admin', '$2a$12$LvdSeFO11/uQxL6waMd1EemHxEpeefd/l12fkvHzl1g04kzPCRaK2','user@user.nl', true);
+
+INSERT INTO users (username, password, email, enabled)
+VALUES ('user', '$2a$12$JCLEjYML2gSHtMxgHug8meGpDtjGOOB3f0w6FSNxdZjpC2i7lMbn2', 'user@user.nl', true);
 
 INSERT INTO users_roles (user_username, roles_rolename) VALUES ('admin', 'admin');
 INSERT INTO users_roles (user_username, roles_rolename) VALUES ('admin', 'user');
