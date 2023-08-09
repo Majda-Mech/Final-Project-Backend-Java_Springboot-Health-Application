@@ -12,6 +12,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/products")
@@ -43,7 +44,7 @@ public class ProductController {
     }
 
     @GetMapping("")
-    public ResponseEntity<Iterable<ProductDto>> getAllProducts() {
+    public ResponseEntity<List<ProductDto>> getAllProducts() {
         return ResponseEntity.ok(prodService.getAllProducts());
     }
 

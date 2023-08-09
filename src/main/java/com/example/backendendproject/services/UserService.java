@@ -7,14 +7,16 @@ import com.example.backendendproject.models.Authority;
 import com.example.backendendproject.models.User;
 import com.example.backendendproject.repositories.UserRepository;
 import com.example.backendendproject.utils.RandomStringGenerator;
-import lombok.Getter;
-import lombok.Setter;
+import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.config.Sprin
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -22,6 +24,8 @@ import java.util.Set;
 public class UserService {
 
     private final UserRepository userRepository;
+
+    private PasswordEncoder passwordEncoder;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -32,8 +36,7 @@ public class UserService {
         List<User> list = userRepository.findAll();
         for (User user : list) {
             collection.add(fromUser(user));
-        }
-        return collection;
+        } return collection;
     }
 
     public UserDto getUser(String username) {
@@ -108,7 +111,7 @@ public class UserService {
         var user = new User();
 
         user.setUsername(userDto.getUsername());
-        user.setPassword(userDto.getPassword());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setEnabled(userDto.getEnabled());
         user.setApikey(userDto.getApikey());
         user.setEmail(userDto.getEmail());

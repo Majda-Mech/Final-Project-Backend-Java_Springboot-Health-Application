@@ -2,7 +2,6 @@ package com.example.backendendproject.services;
 
 import com.example.backendendproject.dtos.ProductDto;
 import com.example.backendendproject.exceptions.DeleteRecordException;
-import com.example.backendendproject.exceptions.NoRelatedObjectFoundException;
 import com.example.backendendproject.exceptions.RecordNotFoundException;
 import com.example.backendendproject.exceptions.UpdateRecordException;
 import com.example.backendendproject.models.Product;
@@ -12,6 +11,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
+import java.util.List;
 
 @Setter
 @Getter
@@ -26,27 +26,23 @@ public class ProductService {
     }
 
     public Long createProduct(ProductDto productDto, Long recipeId) {
-        if (recRepo.findById(recipeId).isPresent()) {
             Product newProduct = new Product();
-
             newProduct.setName(productDto.name);
             newProduct.setDescription(productDto.description);
-
             Product savedProduct = prodRepo.save(newProduct);
 
             return savedProduct.getId();
-
-        } else {
-            throw new NoRelatedObjectFoundException("No Recipe found, make sure Recipe is created before adding products. ");
-        }
     }
 
-    public Iterable<ProductDto> getAllProducts() {
-        Iterable<Product> productList = prodRepo.findAll();
+    public List<ProductDto> getAllProducts() {
+        List<Product> productList = prodRepo.findAll();
         ArrayList<ProductDto> productDtoList = new ArrayList<>();
 
         for (Product product : productList) {
             ProductDto newProductDto = new ProductDto(product);
+            newProductDto.setId(product.getId());
+            newProductDto.setName(product.getName());
+            newProductDto.setDescription(product.getDescription());
             productDtoList.add(newProductDto);
         }
         return productDtoList;
@@ -82,3 +78,4 @@ public class ProductService {
         }
     }
 }
+

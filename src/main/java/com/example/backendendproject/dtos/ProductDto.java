@@ -11,7 +11,7 @@ import javax.validation.constraints.NotBlank;
 public class ProductDto {
     @NotBlank(message = "fill in a Product Name")
     public String name;
-
+    public Long id;
     @NotBlank(message = "Describe your product")
     public String description;
     public Recipe recipe;
