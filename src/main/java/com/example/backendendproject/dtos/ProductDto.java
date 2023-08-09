@@ -23,5 +23,11 @@ public class ProductDto {
     }
 
     public ProductDto(Product product) {
+        this.name= product.getName();
+        this.description = product.getDescription();
+        this.recipe = product.getRecipe();
+        this.id= product.getId();
+    }
+    public ProductDto() {
     }
 }

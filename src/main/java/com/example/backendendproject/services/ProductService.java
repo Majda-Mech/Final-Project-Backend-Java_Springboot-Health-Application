@@ -12,6 +12,7 @@ import lombok.Setter;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Setter
 @Getter
@@ -40,18 +41,18 @@ public class ProductService {
 
         for (Product product : productList) {
             ProductDto newProductDto = new ProductDto(product);
-            newProductDto.setId(product.getId());
-            newProductDto.setName(product.getName());
-            newProductDto.setDescription(product.getDescription());
             productDtoList.add(newProductDto);
         }
         return productDtoList;
     }
 
     public ProductDto getProductById(Long id) {
-        if (prodRepo.findById(id).isPresent()) {
-            Product product = prodRepo.findById(id).get();
+        Optional<Product> optionalproduct = prodRepo.findById(id);
+        if (optionalproduct.isPresent()) {
+            Product product = optionalproduct.get();
             ProductDto newProductDto = new ProductDto(product);
+
+
             return newProductDto;
         } else {
             throw new RecordNotFoundException("No Goal found with this ID");
