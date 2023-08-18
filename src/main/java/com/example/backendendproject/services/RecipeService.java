@@ -18,8 +18,7 @@ public class RecipeService {
     private final RecipeRepository repos;
     private final ProductRepository productRepository;
 
-    public RecipeService(RecipeRepository repos,
-                         ProductRepository productRepository) {
+    public RecipeService(RecipeRepository repos,ProductRepository productRepository) {
         this.repos = repos;
         this.productRepository = productRepository;
     }

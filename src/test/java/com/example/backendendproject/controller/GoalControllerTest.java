@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(GoalController.class)
-@ActiveProfiles("test")
+//@ActiveProfiles("test")
 @AutoConfigureMockMvc(addFilters = false)
 
 class GoalControllerTest {

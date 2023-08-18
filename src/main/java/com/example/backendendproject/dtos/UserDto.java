@@ -16,6 +16,6 @@ public class UserDto {
     public String apikey;
     public String email;
 
-@JsonSerialize
+    @JsonSerialize
     public Set<Authority> authorities;
 }

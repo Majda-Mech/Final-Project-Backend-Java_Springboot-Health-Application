@@ -1,7 +1,6 @@
 package com.example.backendendproject.services;
 
 import com.example.backendendproject.dtos.ProductDto;
-import com.example.backendendproject.dtos.RecipeDto;
 import com.example.backendendproject.models.Product;
 import com.example.backendendproject.models.Recipe;
 import com.example.backendendproject.repositories.ProductRepository;
@@ -24,14 +23,13 @@ import static org.mockito.ArgumentMatchers.any;
 @ExtendWith(MockitoExtension.class)
 class ProductServiceTest {
     @Mock
-    private ProductRepository productRepository;
+    private static ProductRepository productRepository;
 
     @Mock
     private RecipeRepository recipeRepository;
 
     @InjectMocks
     ProductService productService;
-
     ProductDto productDto;
 
     @BeforeEach
@@ -53,10 +51,8 @@ class ProductServiceTest {
         p.setDescription("test1");
         Mockito.when(productRepository.save(any(Product.class))).thenReturn(p);
 
-        //act
         Long p3 = productService.createProduct(productDto, 1L);
 
-        //assert
         Assertions.assertEquals(p.getId(), p3);
     }
 
@@ -68,21 +64,16 @@ class ProductServiceTest {
 
         for (int i = 0; i < 2; i++) {
             Product p = new Product();
-
             p.setId((long) i);
             p.setName("product" + i);
             p.setDescription("description" + i);
             p.setRecipe(l);
-
-            mockProductList.add(p);
-        }
+            mockProductList.add(p);}
 
         Mockito.when(productRepository.findAll()).thenReturn(mockProductList);
 
-        // Act
         List<ProductDto> result = productService.getAllProducts();
 
-        // Assert
         Assertions.assertEquals(mockProductList.size(), result.size());
 
         for (int i = 0; i < mockProductList.size(); i++) {
@@ -96,7 +87,6 @@ class ProductServiceTest {
 
     @Test
     void getProductById () {
-        //arrange
         Recipe l = new Recipe();
         Product p = new Product();
         p.setId(10L);
@@ -104,57 +94,20 @@ class ProductServiceTest {
         p.setDescription("test1");
         Mockito.when(productRepository.findById(any())).thenReturn(Optional.of(p));
 
-        //act
         ProductDto p2 = productService.getProductById(10L);
 
-        //assert
         Assertions.assertEquals(p.getId(),p2.getId());}
 
-        @Test
-        void updateProduct_Success () {
-            //arrange
-            Long productId = 1l;
-            Product updateProduct = new Product();
-            updateProduct.setId(productId);
+    @Test
+    void updateProduct_Success () {
+        Long productId = 1L;
+        Product updateProduct = new Product();
+        updateProduct.setId(productId);
 
-            Mockito.when(productRepository.findById(productId)).thenReturn(Optional.of(new Product()));
-            Mockito.when(productRepository.save(Mockito.any(Product.class))).thenReturn(updateProduct);
+        Mockito.when(productRepository.findById(productId)).thenReturn(Optional.of(new Product()));
+        Mockito.when(productRepository.save(Mockito.any(Product.class))).thenReturn(updateProduct);
 
-            //act
-            ProductDto result = productService.updateProduct(productId, updateProduct);
+        ProductDto result = productService.updateProduct(productId, updateProduct);
 
-            //assert
-            Assertions.assertEquals(productId, result.getId());
-
-        }
-
-        @Test
-        void updateProduct_ProductNotFound() {
-            //arrange
-            Long productId = 10l;
-            Product updateProduct = new Product();
-            updateProduct.setId(productId);
-
-            Mockito.when(productRepository.findById(productId)).thenReturn(Optional.of(new Product()));
-            Mockito.when(productRepository.save(Mockito.any(Product.class))).thenReturn(updateProduct);
-
-            //act
-            ProductDto result = productService.updateProduct(productId, updateProduct);
-
-            //assert
-            Assertions.assertEquals(productId, result.getId());
-
-        }
-
-        @Test
-        void deleteProduct () {
-        }
-
-        @Test
-        void getProdRepo () {
-        }
-
-        @Test
-        void getRecRepo () {
-        }
-    }
+        Assertions.assertEquals(productId, result.getId());     }
+}
