@@ -34,7 +34,7 @@ public class CustomerController {
 
     @PostMapping("")
     public ResponseEntity<String> createCustomer(@Valid @RequestBody CustomerDto customerDto , BindingResult br) {
-        Long createdId = service.createCustomer(customerDto);
+
         if (br.hasErrors()) {
             StringBuilder sb = new StringBuilder();
             for (FieldError fe : br.getFieldErrors()) {
@@ -44,6 +44,7 @@ public class CustomerController {
             }
             return new ResponseEntity<>(sb.toString(), HttpStatus.BAD_REQUEST);
         } else {
+            Long createdId = service.createCustomer(customerDto);
             URI uri = URI.create(
                     ServletUriComponentsBuilder
                             .fromCurrentContextPath()

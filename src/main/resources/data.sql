@@ -70,8 +70,8 @@ VALUES
 (2000, '1990-10-19', 'Test1','Apple','Mega tron',120,180,false, false),
 (3000, '1892-08-29', 'test2','Pewpew','Avatar',130,180,true, true);
 
-INSERT INTO roles (rolename) VALUES ('admin');
-INSERT INTO roles (rolename) VALUES ('user');
+INSERT INTO roles (rolename) VALUES ('ROLE_ADMIN');
+INSERT INTO roles (rolename) VALUES ('ROLE_USER');
 -- user pw = user
 --admin pw= admin
 
@@ -81,6 +81,6 @@ VALUES ('admin', '$2a$12$LvdSeFO11/uQxL6waMd1EemHxEpeefd/l12fkvHzl1g04kzPCRaK2',
 INSERT INTO users (username, password, email, enabled)
 VALUES ('user', '$2a$12$JCLEjYML2gSHtMxgHug8meGpDtjGOOB3f0w6FSNxdZjpC2i7lMbn2', 'user@user.nl', true);
 
-INSERT INTO users_roles (user_username, roles_rolename) VALUES ('admin', 'admin');
-INSERT INTO users_roles (user_username, roles_rolename) VALUES ('admin', 'user');
-INSERT INTO users_roles (user_username, roles_rolename) VALUES ('user', 'user');
+INSERT INTO users_roles (user_username, roles_rolename) VALUES ('admin', 'ROLE_ADMIN');
+INSERT INTO users_roles (user_username, roles_rolename) VALUES ('admin', 'ROLE_USER');
+INSERT INTO users_roles (user_username, roles_rolename) VALUES ('user', 'ROLE_USER');
