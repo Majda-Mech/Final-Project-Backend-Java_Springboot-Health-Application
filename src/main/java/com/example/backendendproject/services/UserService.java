@@ -27,9 +27,11 @@ public class UserService {
 
     private PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder =passwordEncoder;
     }
+
 
     public List<UserDto> getUsers() {
         List<UserDto> collection = new ArrayList<>();
