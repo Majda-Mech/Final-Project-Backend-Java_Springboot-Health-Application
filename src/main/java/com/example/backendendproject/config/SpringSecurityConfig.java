@@ -42,21 +42,22 @@ public class SpringSecurityConfig {
 
     @Bean
     protected SecurityFilterChain filter (HttpSecurity http) throws Exception {
-
         http
                 .csrf().disable()
                 .httpBasic().disable()
                 .cors().and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/users").permitAll()
-                .antMatchers(HttpMethod.GET,"/admin").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET,"/admin").hasAuthority("ADMIN")
                 .antMatchers("/authenticated").authenticated()
                 .antMatchers("/authenticate").permitAll()
                 .antMatchers("/single/uploadDb/").hasAuthority("ADMIN")
-                .antMatchers("/**").hasAnyAuthority("USER", "ADMIN")
+                .antMatchers(HttpMethod.GET,"/customers").hasRole("ADMIN")
+                .antMatchers("/**").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
+                .antMatchers(HttpMethod.GET,"/users/{username}").hasAuthority("ROLE_USER")
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.addFilterBefore((Filter) jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 }

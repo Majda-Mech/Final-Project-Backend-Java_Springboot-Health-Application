@@ -12,7 +12,6 @@ import java.time.LocalDate;
 @Setter
 @Entity
 @Table(name = "customers")
-
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

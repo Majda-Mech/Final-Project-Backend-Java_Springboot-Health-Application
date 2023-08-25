@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -24,7 +23,6 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) {
         UserDto userDto = userService.getUser(username);
-
 
         String password = userDto.getPassword();
 
