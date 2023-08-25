@@ -53,7 +53,8 @@ public class SpringSecurityConfig {
                 .antMatchers("/authenticate").permitAll()
                 .antMatchers("/single/uploadDb/").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.GET,"/customers").hasRole("ADMIN")
-                .antMatchers("/**").hasAnyAuthority("USER", "ADMIN")
+                .antMatchers("/**").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
+                .antMatchers(HttpMethod.GET,"/users/{username}").hasAuthority("ROLE_USER")
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);

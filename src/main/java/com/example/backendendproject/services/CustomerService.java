@@ -7,13 +7,11 @@ import com.example.backendendproject.exceptions.UpdateRecordException;
 import com.example.backendendproject.models.Customer;
 import com.example.backendendproject.repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 
 @Service
 public class CustomerService {
     private final CustomerRepository repos;
-
 
     public CustomerService(CustomerRepository repos) {
         this.repos = repos;
@@ -65,7 +63,6 @@ public class CustomerService {
     }
 
     public CustomerDto updateCustomerById(Long id, Customer newCustomer) {
-
         if(repos.findById(id).isPresent()) {
             newCustomer.setId(id);
             repos.save(newCustomer);
