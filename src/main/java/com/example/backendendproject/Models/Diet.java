@@ -23,9 +23,5 @@ public class Diet {
     @JoinColumn(name = "goal_id")
     private Goal goal;
 
-//    @OneToOne(orphanRemoval = true)
-//    @JoinTable(name = "diet_goal",
-//            joinColumns = @JoinColumn(name = "diet_goal_id"),
-//            inverseJoinColumns = @JoinColumn(name = "goal_id"))
 }
 

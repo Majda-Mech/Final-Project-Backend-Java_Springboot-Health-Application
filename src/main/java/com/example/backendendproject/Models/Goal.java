@@ -1,10 +1,8 @@
 package com.example.backendendproject.Models;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 @Getter
@@ -12,7 +10,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "goal")
 public class Goal {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq")
     @GenericGenerator(name = "seq", strategy = "increment")

@@ -19,12 +19,10 @@ insert into recipes(id, is_vegan, is_vegetarian, name)VALUES
     (401, false, true, 'Fish-Bowl'),
     (402, true, true, 'Tofu-Madness');
 
-
 insert into product (id, description, name, recipe_id)
 values
     (300, 'yumyum chicken protein', 'Chicken', 400 ),
     (301, 'yumyum fish protein', 'Fish', 401 ),
     (302, 'yumyum Vegan protein', 'Tofu', 402 );
-
 
 insert into roles(rolename) values ('USER'), ('ADMIN');
