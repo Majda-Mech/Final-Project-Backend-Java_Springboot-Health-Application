@@ -1,6 +1,5 @@
 package com.example.backendendproject.services;
 
-import com.example.backendendproject.Services.ProductService;
 import com.example.backendendproject.dtos.ProductDto;
 import com.example.backendendproject.models.Product;
 import com.example.backendendproject.models.Recipe;
