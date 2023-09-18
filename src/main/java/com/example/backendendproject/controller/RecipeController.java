@@ -1,8 +1,8 @@
-package com.example.backendendproject.controller;
+package com.example.backendendproject.Controller;
 
-import com.example.backendendproject.dtos.RecipeDto;
-import com.example.backendendproject.models.Recipe;
-import com.example.backendendproject.services.RecipeService;
+import com.example.backendendproject.Dtos.RecipeDto;
+import com.example.backendendproject.Models.Recipe;
+import com.example.backendendproject.Services.RecipeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -16,15 +16,15 @@ import java.net.URI;
 @RestController
 @RequestMapping("/recipes")
 public class RecipeController {
-    private final com.example.backendendproject.services.RecipeService RecipeService;
+    private final RecipeService recipeService;
 
     public RecipeController(RecipeService recipeService) {
-        this.RecipeService = recipeService;
+        this.recipeService = recipeService;
     }
 
     @PostMapping("")
     public ResponseEntity<String> createRecipe(@Valid @RequestBody RecipeDto recipeDto, BindingResult br) {
-        Long savedRecipe = RecipeService.createRecipe(recipeDto);
+        Long savedRecipe = recipeService.createRecipe(recipeDto);
         if (br.hasErrors()) {
             StringBuilder sb = new StringBuilder();
             for (FieldError fe : br.getFieldErrors()) {
@@ -44,23 +44,23 @@ public class RecipeController {
 
     @GetMapping("")
     public ResponseEntity<Iterable<RecipeDto>> getAllRecipes() {
-        return ResponseEntity.ok(RecipeService.getAllRecipes());
+        return ResponseEntity.ok(recipeService.getAllRecipes());
     }
 
     @GetMapping("{id}")
     public ResponseEntity<RecipeDto> getRecipeById(@PathVariable Long id) {
-        return ResponseEntity.ok(RecipeService.getRecipeById(id));
+        return ResponseEntity.ok(recipeService.getRecipeById(id));
     }
 
     @PutMapping("{id}")
     public ResponseEntity<String> updateRecipe(@PathVariable Long id, @RequestBody Recipe newRecipe) {
-        RecipeService.updateRecipe(id, newRecipe);
+        recipeService.updateRecipe(id, newRecipe);
         return ResponseEntity.ok().body("Recipe has been Updated");
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<Object> deleteRecipe(@PathVariable Long id) {
-        RecipeService.deleteRecipe(id);
+        recipeService.deleteRecipe(id);
         return ResponseEntity.ok().body("Recipe has been Deleted");
     }
 }

@@ -1,12 +1,13 @@
 package com.example.backendendproject.services;
 
-import com.example.backendendproject.dtos.GoalDto;
-import com.example.backendendproject.exceptions.DeleteRecordException;
-import com.example.backendendproject.exceptions.RecordNotFoundException;
-import com.example.backendendproject.exceptions.UpdateRecordException;
-import com.example.backendendproject.models.Diet;
-import com.example.backendendproject.models.Goal;
-import com.example.backendendproject.repositories.GoalRepository;
+import com.example.backendendproject.Dtos.GoalDto;
+import com.example.backendendproject.Exceptions.DeleteRecordException;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.UpdateRecordException;
+import com.example.backendendproject.Models.Diet;
+import com.example.backendendproject.Models.Goal;
+import com.example.backendendproject.Repositories.GoalRepository;
+import com.example.backendendproject.Services.GoalService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,7 +1,7 @@
 package com.example.backendendproject.config;
 
+import com.example.backendendproject.Services.CustomUserDetailsService;
 import com.example.backendendproject.filter.JwtRequestFilter;
-import com.example.backendendproject.services.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,16 +13,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import javax.servlet.Filter;
 
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfig {
-
     public final CustomUserDetailsService customUserDetailsService;
-
     private final JwtRequestFilter jwtRequestFilter;
-
     private final PasswordEncoder passwordEncoder;
 
     public SpringSecurityConfig(CustomUserDetailsService customUserDetailsService, JwtRequestFilter jwtRequestFilter, PasswordEncoder passwordEncoder) {

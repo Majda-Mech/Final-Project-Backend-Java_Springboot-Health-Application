@@ -1,8 +1,8 @@
-package com.example.backendendproject.controller;
+package com.example.backendendproject.Controller;
 
-import com.example.backendendproject.dtos.AuthenticationRequest;
-import com.example.backendendproject.dtos.AuthenticationResponse;
-import com.example.backendendproject.services.CustomUserDetailsService;
+import com.example.backendendproject.Dtos.AuthenticationRequest;
+import com.example.backendendproject.Dtos.AuthenticationResponse;
+import com.example.backendendproject.Services.CustomUserDetailsService;
 import com.example.backendendproject.utils.JwtUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,7 +11,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
-
 import java.security.Principal;
 
 @CrossOrigin

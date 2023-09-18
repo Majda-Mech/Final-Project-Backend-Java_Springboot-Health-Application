@@ -1,12 +1,11 @@
-package com.example.backendendproject.dtos;
+package com.example.backendendproject.Dtos;
 
-import com.example.backendendproject.models.Product;
-import com.example.backendendproject.models.Recipe;
+import com.example.backendendproject.Models.Product;
+import com.example.backendendproject.Models.Recipe;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 

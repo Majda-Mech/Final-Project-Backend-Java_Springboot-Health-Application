@@ -1,8 +1,8 @@
-package com.example.backendendproject.repositories;
+package com.example.backendendproject.Repositories;
 
-import com.example.backendendproject.models.Product;
+import com.example.backendendproject.Models.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
+
 
 public interface ProductRepository extends JpaRepository <Product, Long> {
 }

@@ -1,7 +1,8 @@
 package com.example.backendendproject.controller;
 
+import com.example.backendendproject.Controller.ProductController;
 import com.example.backendendproject.filter.JwtRequestFilter;
-import com.example.backendendproject.services.ProductService;
+import com.example.backendendproject.Services.ProductService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +34,10 @@ class ProductControllerTest {
 
     @Test
     void testDeleteProduct() throws Exception {
-        // Setup
-        // Run the test
         final MockHttpServletResponse response = mockMvc.perform(delete("/products/{id}", 0)
                         .accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
 
-        // Verify the results
         assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
         assertThat(response.getContentAsString()).isEqualTo("Product has been Deleted");
         verify(mockProdService).deleteProduct(0L);

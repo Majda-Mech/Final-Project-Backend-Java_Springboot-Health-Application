@@ -1,25 +1,23 @@
-package com.example.backendendproject.services;
+package com.example.backendendproject.Services;
 
-import com.example.backendendproject.dtos.CustomerDto;
-import com.example.backendendproject.exceptions.DeleteRecordException;
-import com.example.backendendproject.exceptions.RecordNotFoundException;
-import com.example.backendendproject.exceptions.UpdateRecordException;
-import com.example.backendendproject.models.Customer;
-import com.example.backendendproject.repositories.CustomerRepository;
+import com.example.backendendproject.Dtos.CustomerDto;
+import com.example.backendendproject.Exceptions.DeleteRecordException;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.UpdateRecordException;
+import com.example.backendendproject.Models.Customer;
+import com.example.backendendproject.Repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
 public class CustomerService {
     private final CustomerRepository repos;
-
     public CustomerService(CustomerRepository repos) {
         this.repos = repos;
     }
 
     public Long createCustomer(CustomerDto customerDto) {
         Customer newCustomer = new Customer();
-
         newCustomer.setFirstName(customerDto.getFirstName());
         newCustomer.setLastName(customerDto.getLastName());
         newCustomer.setGender(customerDto.getGender());

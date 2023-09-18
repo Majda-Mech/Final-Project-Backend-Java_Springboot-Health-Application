@@ -1,7 +1,7 @@
-package com.example.backendendproject.services;
+package com.example.backendendproject.Services;
 
-import com.example.backendendproject.dtos.UserDto;
-import com.example.backendendproject.models.Authority;
+import com.example.backendendproject.Dtos.UserDto;
+import com.example.backendendproject.Models.Authority;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

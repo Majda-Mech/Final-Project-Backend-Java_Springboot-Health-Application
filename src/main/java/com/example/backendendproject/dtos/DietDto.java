@@ -1,7 +1,7 @@
-package com.example.backendendproject.dtos;
+package com.example.backendendproject.Dtos;
 
-import com.example.backendendproject.models.Diet;
-import com.example.backendendproject.models.Goal;
+import com.example.backendendproject.Models.Diet;
+import com.example.backendendproject.Models.Goal;
 import lombok.Getter;
 import lombok.Setter;
 

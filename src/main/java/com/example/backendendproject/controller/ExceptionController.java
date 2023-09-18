@@ -1,9 +1,12 @@
-package com.example.backendendproject.controller;
+package com.example.backendendproject.Controller;
 
-import com.example.backendendproject.exceptions.DeleteRecordException;
-import com.example.backendendproject.exceptions.NoRelatedObjectFoundException;
-import com.example.backendendproject.exceptions.RecordNotFoundException;
-import com.example.backendendproject.exceptions.UpdateRecordException;
+import com.example.backendendproject.Exceptions.DeleteRecordException;
+import com.example.backendendproject.Exceptions.NoRelatedObjectFoundException;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.DeleteRecordException;
+import com.example.backendendproject.Exceptions.NoRelatedObjectFoundException;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.UpdateRecordException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

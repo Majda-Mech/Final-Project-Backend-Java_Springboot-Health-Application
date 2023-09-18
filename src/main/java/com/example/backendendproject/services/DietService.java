@@ -1,16 +1,15 @@
-package com.example.backendendproject.services;
+package com.example.backendendproject.Services;
 
-import com.example.backendendproject.dtos.DietDto;
-import com.example.backendendproject.exceptions.DeleteRecordException;
-import com.example.backendendproject.exceptions.NoRelatedObjectFoundException;
-import com.example.backendendproject.exceptions.RecordNotFoundException;
-import com.example.backendendproject.exceptions.UpdateRecordException;
-import com.example.backendendproject.models.Diet;
-import com.example.backendendproject.models.Goal;
-import com.example.backendendproject.repositories.DietRepository;
-import com.example.backendendproject.repositories.GoalRepository;
+import com.example.backendendproject.Dtos.DietDto;
+import com.example.backendendproject.Exceptions.DeleteRecordException;
+import com.example.backendendproject.Exceptions.NoRelatedObjectFoundException;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.UpdateRecordException;
+import com.example.backendendproject.Models.Diet;
+import com.example.backendendproject.Models.Goal;
+import com.example.backendendproject.Repositories.DietRepository;
+import com.example.backendendproject.Repositories.GoalRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 
 @Service
@@ -54,7 +53,7 @@ public class DietService {
 
     public DietDto getDietById(Long id) {
         if (repos.findById(id).isPresent()) {
-            Diet diet      = repos.findById(id).get();
+            Diet diet = repos.findById(id).get();
             DietDto newDietDto = new DietDto();
 
             newDietDto.setDescription(diet.getDescription());
@@ -85,5 +84,4 @@ public class DietService {
             throw new UpdateRecordException("No Diet found with this ID");
         }
     }
-
 }

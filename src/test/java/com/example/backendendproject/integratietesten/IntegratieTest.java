@@ -7,10 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -27,7 +25,6 @@ class IntegratieTest {
         final MockHttpServletResponse response = mockMvc.perform(delete("/products/{id}", 1001)
                         .accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
-        // Verify the results
         assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
         assertThat(response.getContentAsString()).isEqualTo("Product has been Deleted");
     }
@@ -39,9 +36,6 @@ class IntegratieTest {
                 .andExpect(jsonPath("id").value(1001))
                 .andExpect(jsonPath("name").value("Product 1"))
                 .andReturn().getResponse();
-        // Verify the results
         assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
     }
-
-
 }

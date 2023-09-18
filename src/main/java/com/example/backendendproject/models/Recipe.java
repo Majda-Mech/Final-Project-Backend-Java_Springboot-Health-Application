@@ -1,4 +1,4 @@
-package com.example.backendendproject.models;
+package com.example.backendendproject.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -24,10 +24,4 @@ public class Recipe {
     @OneToMany(mappedBy = "recipe")
     @JsonIgnore
     private List<Product> products;
-
-//    @ManyToOne
-//    @JoinColumn(name = "recipe_id")
-//    private Recipe recipe;
-
-
 }

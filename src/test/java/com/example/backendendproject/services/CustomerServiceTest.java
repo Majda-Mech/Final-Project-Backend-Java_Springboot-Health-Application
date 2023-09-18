@@ -1,11 +1,12 @@
 package com.example.backendendproject.services;
 
-import com.example.backendendproject.dtos.CustomerDto;
-import com.example.backendendproject.exceptions.DeleteRecordException;
-import com.example.backendendproject.exceptions.RecordNotFoundException;
-import com.example.backendendproject.exceptions.UpdateRecordException;
-import com.example.backendendproject.models.Customer;
-import com.example.backendendproject.repositories.CustomerRepository;
+import com.example.backendendproject.Repositories.CustomerRepository;
+import com.example.backendendproject.Services.CustomerService;
+import com.example.backendendproject.Dtos.CustomerDto;
+import com.example.backendendproject.Exceptions.DeleteRecordException;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.UpdateRecordException;
+import com.example.backendendproject.Models.Customer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

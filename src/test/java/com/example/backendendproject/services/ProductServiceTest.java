@@ -1,10 +1,11 @@
 package com.example.backendendproject.services;
 
-import com.example.backendendproject.dtos.ProductDto;
-import com.example.backendendproject.models.Product;
-import com.example.backendendproject.models.Recipe;
-import com.example.backendendproject.repositories.ProductRepository;
-import com.example.backendendproject.repositories.RecipeRepository;
+import com.example.backendendproject.Dtos.ProductDto;
+import com.example.backendendproject.Models.Product;
+import com.example.backendendproject.Models.Recipe;
+import com.example.backendendproject.Repositories.ProductRepository;
+import com.example.backendendproject.Repositories.RecipeRepository;
+import com.example.backendendproject.Services.ProductService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,7 +44,6 @@ class ProductServiceTest {
 
     @Test
     void createProduct() {
-        //arrange
         Recipe l = new Recipe();
         Product p = new Product();
         p.setId(10L);
@@ -58,7 +58,6 @@ class ProductServiceTest {
 
     @Test
     public void testGetAllProducts() {
-        // Arrange
         List<Product> mockProductList = new ArrayList<>();
         Recipe l = new Recipe();
 

@@ -1,13 +1,12 @@
-package com.example.backendendproject.services;
+package com.example.backendendproject.Services;
 
-import com.example.backendendproject.dtos.GoalDto;
-import com.example.backendendproject.exceptions.DeleteRecordException;
-import com.example.backendendproject.exceptions.RecordNotFoundException;
-import com.example.backendendproject.exceptions.UpdateRecordException;
-import com.example.backendendproject.models.Goal;
-import com.example.backendendproject.repositories.GoalRepository;
+import com.example.backendendproject.Dtos.GoalDto;
+import com.example.backendendproject.Exceptions.DeleteRecordException;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.UpdateRecordException;
+import com.example.backendendproject.Models.Goal;
+import com.example.backendendproject.Repositories.GoalRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 
 @Service
@@ -58,7 +57,7 @@ public class GoalService {
     }
     public GoalDto getGoalDtoById(Long id) {
         if (repos.findById(id).isPresent()) {
-            Goal goal   = repos.findById(id).get();
+            Goal goal = repos.findById(id).get();
             GoalDto newGoalDto = goalToGoalDto(goal);
             return newGoalDto;
         } else {

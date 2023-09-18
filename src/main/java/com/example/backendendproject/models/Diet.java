@@ -1,9 +1,8 @@
-package com.example.backendendproject.models;
+package com.example.backendendproject.Models;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 @Getter
@@ -24,10 +23,5 @@ public class Diet {
     @MapsId
     @JoinColumn(name = "goal_id")
     private Goal goal;
-
-//    @OneToOne(orphanRemoval = true)
-//    @JoinTable(name = "diet_goal",
-//            joinColumns = @JoinColumn(name = "diet_goal_id"),
-//            inverseJoinColumns = @JoinColumn(name = "goal_id"))
 }
 

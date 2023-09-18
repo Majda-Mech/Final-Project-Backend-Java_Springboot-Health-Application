@@ -1,8 +1,8 @@
-package com.example.backendendproject.controller;
+package com.example.backendendproject.Controller;
 
-import com.example.backendendproject.dtos.CustomerDto;
-import com.example.backendendproject.models.Customer;
-import com.example.backendendproject.services.CustomerService;
+import com.example.backendendproject.Dtos.CustomerDto;
+import com.example.backendendproject.Models.Customer;
+import com.example.backendendproject.Services.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;

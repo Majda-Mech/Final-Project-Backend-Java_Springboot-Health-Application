@@ -1,4 +1,4 @@
-package com.example.backendendproject.exceptions;
+package com.example.backendendproject.Exceptions;
 
 import java.io.Serial;
 

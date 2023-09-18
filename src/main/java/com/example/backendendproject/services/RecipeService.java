@@ -1,15 +1,14 @@
-package com.example.backendendproject.services;
+package com.example.backendendproject.Services;
 
-import com.example.backendendproject.dtos.RecipeDto;
-import com.example.backendendproject.exceptions.DeleteRecordException;
-import com.example.backendendproject.exceptions.RecordNotFoundException;
-import com.example.backendendproject.exceptions.UpdateRecordException;
-import com.example.backendendproject.models.Product;
-import com.example.backendendproject.models.Recipe;
-import com.example.backendendproject.repositories.ProductRepository;
-import com.example.backendendproject.repositories.RecipeRepository;
+import com.example.backendendproject.Dtos.RecipeDto;
+import com.example.backendendproject.Exceptions.DeleteRecordException;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.UpdateRecordException;
+import com.example.backendendproject.Models.Product;
+import com.example.backendendproject.Models.Recipe;
+import com.example.backendendproject.Repositories.ProductRepository;
+import com.example.backendendproject.Repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +46,7 @@ public class RecipeService {
     }
     public RecipeDto getRecipeById(Long id) {
         if (repos.findById(id).isPresent()) {
-            Recipe recipe   = repos.findById(id).get();
+            Recipe recipe = repos.findById(id).get();
             RecipeDto newRecipeDto = new RecipeDto(recipe);
             return newRecipeDto;
         } else {

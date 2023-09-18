@@ -1,12 +1,11 @@
-package com.example.backendendproject.controller;
+package com.example.backendendproject.Controller;
 
-import com.example.backendendproject.dtos.UserDto;
-import com.example.backendendproject.exceptions.BadRequestException;
-import com.example.backendendproject.services.UserService;
+import com.example.backendendproject.Dtos.UserDto;
+import com.example.backendendproject.Exceptions.BadRequestException;
+import com.example.backendendproject.Services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.net.URI;
 import java.util.List;
 import java.util.Map;

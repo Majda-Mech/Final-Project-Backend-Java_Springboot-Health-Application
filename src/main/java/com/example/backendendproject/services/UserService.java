@@ -1,14 +1,13 @@
-package com.example.backendendproject.services;
+package com.example.backendendproject.Services;
 
-import com.example.backendendproject.dtos.UserDto;
-import com.example.backendendproject.exceptions.RecordNotFoundException;
-import com.example.backendendproject.exceptions.UsernameNotFoundException;
-import com.example.backendendproject.models.Authority;
-import com.example.backendendproject.models.User;
-import com.example.backendendproject.repositories.UserRepository;
+import com.example.backendendproject.Dtos.UserDto;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Models.Authority;
+import com.example.backendendproject.Models.User;
+import com.example.backendendproject.Repositories.UserRepository;
 import com.example.backendendproject.utils.RandomStringGenerator;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-//import org.springframework.security.config.Sprin
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,16 +21,12 @@ import lombok.Setter;
 @Setter
 @Service
 public class UserService {
-
     private final UserRepository userRepository;
-
     private PasswordEncoder passwordEncoder;
-
     public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder =passwordEncoder;
     }
-
 
     public List<UserDto> getUsers() {
         List<UserDto> collection = new ArrayList<>();
@@ -98,7 +93,6 @@ public class UserService {
     }
 
     public static UserDto fromUser(User user){
-
         var dto = new UserDto();
         dto.username = user.getUsername();
         dto.password = user.getPassword();
@@ -111,7 +105,6 @@ public class UserService {
 
     public User toUser(UserDto userDto) {
         var user = new User();
-
         user.setUsername(userDto.getUsername());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setEnabled(userDto.getEnabled());

@@ -1,15 +1,14 @@
-package com.example.backendendproject.controller;
+package com.example.backendendproject.Controller;
 
-import com.example.backendendproject.dtos.ProductDto;
-import com.example.backendendproject.models.Product;
-import com.example.backendendproject.services.ProductService;
+import com.example.backendendproject.Dtos.ProductDto;
+import com.example.backendendproject.Models.Product;
+import com.example.backendendproject.Services.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
@@ -23,9 +22,9 @@ public class ProductController {
         this.prodService = prodService;
     }
 
-    @PostMapping("{id}")
-    public ResponseEntity<String> createProduct(@Valid @PathVariable Long id, @RequestBody ProductDto productDto, BindingResult br) {
-        Long savedProduct = prodService.createProduct(productDto, id);
+    @PostMapping()
+    public ResponseEntity<String> createProduct(@Valid @RequestBody ProductDto productDto, BindingResult br) {
+        Long savedProduct = prodService.createProduct(productDto);
         if (br.hasErrors()) {
             StringBuilder sb = new StringBuilder();
             for (FieldError fe : br.getFieldErrors()) {

@@ -1,13 +1,14 @@
 package com.example.backendendproject.services;
 
-import com.example.backendendproject.dtos.RecipeDto;
-import com.example.backendendproject.exceptions.DeleteRecordException;
-import com.example.backendendproject.exceptions.RecordNotFoundException;
-import com.example.backendendproject.exceptions.UpdateRecordException;
-import com.example.backendendproject.models.Product;
-import com.example.backendendproject.models.Recipe;
-import com.example.backendendproject.repositories.ProductRepository;
-import com.example.backendendproject.repositories.RecipeRepository;
+import com.example.backendendproject.Dtos.RecipeDto;
+import com.example.backendendproject.Exceptions.DeleteRecordException;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.UpdateRecordException;
+import com.example.backendendproject.Models.Product;
+import com.example.backendendproject.Models.Recipe;
+import com.example.backendendproject.Repositories.ProductRepository;
+import com.example.backendendproject.Repositories.RecipeRepository;
+import com.example.backendendproject.Services.RecipeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

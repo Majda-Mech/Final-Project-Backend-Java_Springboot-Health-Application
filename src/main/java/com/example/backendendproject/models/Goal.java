@@ -1,4 +1,4 @@
-package com.example.backendendproject.models;
+package com.example.backendendproject.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;

@@ -1,10 +1,9 @@
-package com.example.backendendproject.dtos;
+package com.example.backendendproject.Dtos;
 
-import com.example.backendendproject.models.Customer;
+import com.example.backendendproject.Models.Customer;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import java.time.LocalDate;
@@ -31,8 +30,6 @@ public class CustomerDto {
     private boolean isVegan;
     private boolean isVegetarian;
 
-    public CustomerDto() {
-            }
 
     public CustomerDto(Customer customer) {
             this.id = customer.getId();

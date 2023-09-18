@@ -1,12 +1,12 @@
-package com.example.backendendproject.services;
+package com.example.backendendproject.Services;
 
-import com.example.backendendproject.dtos.ProductDto;
-import com.example.backendendproject.exceptions.DeleteRecordException;
-import com.example.backendendproject.exceptions.RecordNotFoundException;
-import com.example.backendendproject.exceptions.UpdateRecordException;
-import com.example.backendendproject.models.Product;
-import com.example.backendendproject.repositories.ProductRepository;
-import com.example.backendendproject.repositories.RecipeRepository;
+import com.example.backendendproject.Dtos.ProductDto;
+import com.example.backendendproject.Exceptions.DeleteRecordException;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.UpdateRecordException;
+import com.example.backendendproject.Models.Product;
+import com.example.backendendproject.Repositories.ProductRepository;
+import com.example.backendendproject.Repositories.RecipeRepository;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ public class ProductService {
         this.recRepo = recRepo;
     }
 
-    public Long createProduct(ProductDto productDto, Long recipeId) {
+    public Long createProduct(ProductDto productDto) {
             Product newProduct = new Product();
             newProduct.setName(productDto.name);
             newProduct.setDescription(productDto.description);

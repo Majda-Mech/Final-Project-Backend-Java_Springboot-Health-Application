@@ -1,14 +1,16 @@
 package com.example.backendendproject.services;
 
-import com.example.backendendproject.dtos.DietDto;
-import com.example.backendendproject.exceptions.DeleteRecordException;
-import com.example.backendendproject.exceptions.NoRelatedObjectFoundException;
-import com.example.backendendproject.exceptions.RecordNotFoundException;
-import com.example.backendendproject.exceptions.UpdateRecordException;
-import com.example.backendendproject.models.Diet;
-import com.example.backendendproject.models.Goal;
-import com.example.backendendproject.repositories.DietRepository;
-import com.example.backendendproject.repositories.GoalRepository;import org.junit.jupiter.api.BeforeEach;
+import com.example.backendendproject.Dtos.DietDto;
+import com.example.backendendproject.Exceptions.DeleteRecordException;
+import com.example.backendendproject.Exceptions.NoRelatedObjectFoundException;
+import com.example.backendendproject.Exceptions.RecordNotFoundException;
+import com.example.backendendproject.Exceptions.UpdateRecordException;
+import com.example.backendendproject.Models.Diet;
+import com.example.backendendproject.Models.Goal;
+import com.example.backendendproject.Repositories.DietRepository;
+import com.example.backendendproject.Repositories.GoalRepository;
+import com.example.backendendproject.Services.DietService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;

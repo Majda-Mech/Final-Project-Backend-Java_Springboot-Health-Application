@@ -1,15 +1,14 @@
-package com.example.backendendproject.controller;
+package com.example.backendendproject.Controller;
 
-import com.example.backendendproject.dtos.DietDto;
-import com.example.backendendproject.models.Diet;
-import com.example.backendendproject.services.DietService;
+import com.example.backendendproject.Dtos.DietDto;
+import com.example.backendendproject.Models.Diet;
+import com.example.backendendproject.Services.DietService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import javax.validation.Valid;
 import java.net.URI;
 

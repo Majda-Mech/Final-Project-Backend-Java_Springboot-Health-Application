@@ -1,7 +1,8 @@
 package com.example.backendendproject.controller;
 
+import com.example.backendendproject.Controller.CustomerController;
+import com.example.backendendproject.Services.CustomerService;
 import com.example.backendendproject.filter.JwtRequestFilter;
-import com.example.backendendproject.services.CustomerService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

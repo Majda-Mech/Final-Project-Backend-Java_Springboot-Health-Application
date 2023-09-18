@@ -1,6 +1,6 @@
-package com.example.backendendproject.repositories;
+package com.example.backendendproject.Repositories;
 
-import com.example.backendendproject.models.Recipe;
+import com.example.backendendproject.Models.Recipe;
 import org.springframework.data.repository.CrudRepository;
 
 public interface RecipeRepository extends CrudRepository<Recipe, Long> {
