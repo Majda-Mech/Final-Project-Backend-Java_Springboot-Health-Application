@@ -26,4 +26,3 @@ public class Goal {
     @JsonIgnore
     private Diet diet;
 }
-

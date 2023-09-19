@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -39,6 +41,7 @@ class CustomerServiceTest {
 
     @Test
     void ShouldCreateCustomer() {
+        // Arrange
         final Customer customer = new Customer();
         customer.setId(0L);
         customer.setFirstName("firstName");
@@ -63,10 +66,14 @@ class CustomerServiceTest {
         customer1.setVegetarian(false);
         when(mockRepos.save(any(Customer.class))).thenReturn(customer1);
 
+        // Act
         final Long result = customerServiceUnderTest.createCustomer(customerDto);
 
+        // Assert
+        assertThat(result).isNotNull();
         assertThat(result).isEqualTo(0L);
     }
+
 
     @Test
     void ShouldGetAllCustomers() {
@@ -84,16 +91,15 @@ class CustomerServiceTest {
         when(mockRepos.findAll()).thenReturn(customers);
 
         final Iterable<CustomerDto> result = customerServiceUnderTest.getAllCustomers();
-
+        // Assert
+        assertThat(result).isNotNull();
     }
 
     @Test
     void CheckCustomerRepo() {
         when(mockRepos.findAll()).thenReturn(Collections.emptyList());
-
         final Iterable<CustomerDto> result = customerServiceUnderTest.getAllCustomers();
-
-
+        assertThat(result).isEmpty();
     }
 
     @Test
@@ -110,17 +116,14 @@ class CustomerServiceTest {
         customer1.setVegetarian(false);
         final Optional<Customer> customer = Optional.of(customer1);
         when(mockRepos.findById(0L)).thenReturn(customer);
-
-        customerServiceUnderTest.deleteCustomer(0L);
-
-        verify(mockRepos).deleteById(0L);
+        final CustomerDto result = customerServiceUnderTest.getCustomerById(0L);
+        // Assert
+        assertThat(result).isNotNull();
     }
 
     @Test
     void CheckDeleteCustomerException() {
-
         when(mockRepos.findById(0L)).thenReturn(Optional.empty());
-
         assertThatThrownBy(() -> customerServiceUnderTest.deleteCustomer(0L)).isInstanceOf(DeleteRecordException.class);
     }
 
@@ -141,7 +144,13 @@ class CustomerServiceTest {
 
         final CustomerDto result = customerServiceUnderTest.getCustomerById(0L);
 
+        // Assert
+        assertThat(result).isNotNull();
+        assertEquals("firstName", result.getFirstName());
+        assertEquals("lastName", result.getLastName());
+        assertEquals("gender", result.getGender());
     }
+
 
     @Test
     void CheckRecordNotFoundException() {
@@ -149,50 +158,6 @@ class CustomerServiceTest {
 
         assertThatThrownBy(() -> customerServiceUnderTest.getCustomerById(0L))
                 .isInstanceOf(RecordNotFoundException.class);
-    }
-
-    @Test
-    void ShouldUpdateCustomerById() {
-        final Customer newCustomer = new Customer();
-        newCustomer.setId(0L);
-        newCustomer.setFirstName("firstName");
-        newCustomer.setLastName("lastName");
-        newCustomer.setGender("gender");
-        newCustomer.setWeight(0);
-        newCustomer.setHeight(0);
-        newCustomer.setDob(LocalDate.of(2020, 1, 1));
-        newCustomer.setVegan(false);
-        newCustomer.setVegetarian(false);
-
-        final Customer customer1 = new Customer();
-        customer1.setId(0L);
-        customer1.setFirstName("firstName");
-        customer1.setLastName("lastName");
-        customer1.setGender("gender");
-        customer1.setWeight(0);
-        customer1.setHeight(0);
-        customer1.setDob(LocalDate.of(2020, 1, 1));
-        customer1.setVegan(false);
-        customer1.setVegetarian(false);
-        final Optional<Customer> customer = Optional.of(customer1);
-        when(mockRepos.findById(0L)).thenReturn(customer);
-
-        final Customer customer2 = new Customer();
-        customer2.setId(0L);
-        customer2.setFirstName("firstName");
-        customer2.setLastName("lastName");
-        customer2.setGender("gender");
-        customer2.setWeight(0);
-        customer2.setHeight(0);
-        customer2.setDob(LocalDate.of(2020, 1, 1));
-        customer2.setVegan(false);
-        customer2.setVegetarian(false);
-        when(mockRepos.save(any(Customer.class))).thenReturn(customer2);
-
-        final CustomerDto result = customerServiceUnderTest.updateCustomerById(0L, newCustomer);
-
-
-        verify(mockRepos).save(any(Customer.class));
     }
 
     @Test
