@@ -14,12 +14,14 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class ProductServiceTest {
@@ -51,10 +53,11 @@ class ProductServiceTest {
         p.setDescription("test1");
         Mockito.when(productRepository.save(any(Product.class))).thenReturn(p);
 
-        Long p3 = productService.createProduct(productDto, 1L);
+        Long p3 = productService.createProduct(productDto);
 
         Assertions.assertEquals(p.getId(), p3);
     }
+
 
     @Test
     public void testGetAllProducts() {
@@ -69,7 +72,7 @@ class ProductServiceTest {
             p.setRecipe(l);
             mockProductList.add(p);}
 
-        Mockito.when(productRepository.findAll()).thenReturn(mockProductList);
+        when(productRepository.findAll()).thenReturn(mockProductList);
 
         List<ProductDto> result = productService.getAllProducts();
 
@@ -91,11 +94,12 @@ class ProductServiceTest {
         p.setId(10L);
         p.setName("test");
         p.setDescription("test1");
-        Mockito.when(productRepository.findById(any())).thenReturn(Optional.of(p));
+        when(productRepository.findById(any())).thenReturn(Optional.of(p));
 
         ProductDto p2 = productService.getProductById(10L);
 
-        Assertions.assertEquals(p.getId(),p2.getId());}
+        Assertions.assertEquals(p.getId(),p2.getId());
+    }
 
     @Test
     void updateProduct_Success () {
@@ -103,8 +107,8 @@ class ProductServiceTest {
         Product updateProduct = new Product();
         updateProduct.setId(productId);
 
-        Mockito.when(productRepository.findById(productId)).thenReturn(Optional.of(new Product()));
-        Mockito.when(productRepository.save(Mockito.any(Product.class))).thenReturn(updateProduct);
+        when(productRepository.findById(productId)).thenReturn(Optional.of(new Product()));
+        when(productRepository.save(Mockito.any(Product.class))).thenReturn(updateProduct);
 
         ProductDto result = productService.updateProduct(productId, updateProduct);
 

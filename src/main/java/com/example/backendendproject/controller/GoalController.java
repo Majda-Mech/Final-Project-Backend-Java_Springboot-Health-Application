@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import javax.validation.Valid;
 import java.net.URI;
 
@@ -21,7 +20,6 @@ public class GoalController {
     public GoalController(GoalService service) {
         this.service = service;
     }
-
 
     @GetMapping("")
     public ResponseEntity<Iterable<GoalDto>> getAllGoals() {
