@@ -4,7 +4,6 @@ import com.example.backendendproject.Models.Authority;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.Set;
 
 @Getter
