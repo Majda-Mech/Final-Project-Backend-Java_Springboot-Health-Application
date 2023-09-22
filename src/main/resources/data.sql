@@ -70,7 +70,6 @@ VALUES
 (2000, '1990-10-19', 'Test1','Apple','Mega tron',120,180,false, false),
 (3000, '1892-08-29', 'test2','Pewpew','Avatar',130,180,true, true);
 
-
 INSERT INTO users (username, password, email, enabled)
 VALUES ('admin', '$2a$12$LvdSeFO11/uQxL6waMd1EemHxEpeefd/l12fkvHzl1g04kzPCRaK2','user@user.nl', true);
 
