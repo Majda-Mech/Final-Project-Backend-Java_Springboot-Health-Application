@@ -12,6 +12,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 
+import static com.example.backendendproject.Controller.RecipeController.getStringResponseEntity;
+
 @RestController
 @RequestMapping("/customers")
 public class CustomerController {
@@ -36,13 +38,7 @@ public class CustomerController {
     public ResponseEntity<String> createCustomer(@Valid @RequestBody CustomerDto customerDto , BindingResult br) {
 
         if (br.hasErrors()) {
-            StringBuilder sb = new StringBuilder();
-            for (FieldError fe : br.getFieldErrors()) {
-                sb.append(fe.getField() + ": ");
-                sb.append(fe.getDefaultMessage());
-                sb.append("\n");
-            }
-            return new ResponseEntity<>(sb.toString(), HttpStatus.BAD_REQUEST);
+            return getStringResponseEntity(br);
         } else {
             Long createdId = service.createCustomer(customerDto);
             URI uri = URI.create(

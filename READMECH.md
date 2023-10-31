@@ -1,3 +1,4 @@
+
 <img width="110" alt="logo" src="https://user-images.githubusercontent.com/112877888/228515622-6aee77f8-341c-437d-bc21-2b8e36a8a381.png">
 
 # Welcome to my 'Smech-it' calorie & health application!

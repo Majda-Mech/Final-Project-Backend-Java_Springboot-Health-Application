@@ -30,7 +30,6 @@ public class CustomerDto {
     private boolean isVegan;
     private boolean isVegetarian;
 
-
     public CustomerDto(Customer customer) {
             this.id = customer.getId();
             this.firstName = customer.getFirstName();
