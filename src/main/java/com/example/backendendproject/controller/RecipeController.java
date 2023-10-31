@@ -26,13 +26,7 @@ public class RecipeController {
     public ResponseEntity<String> createRecipe(@Valid @RequestBody RecipeDto recipeDto, BindingResult br) {
         Long savedRecipe = recipeService.createRecipe(recipeDto);
         if (br.hasErrors()) {
-            StringBuilder sb = new StringBuilder();
-            for (FieldError fe : br.getFieldErrors()) {
-                sb.append(fe.getField() + ": ");
-                sb.append(fe.getDefaultMessage());
-                sb.append("\n");
-            }
-            return new ResponseEntity<>(sb.toString(), HttpStatus.BAD_REQUEST);
+            return getStringResponseEntity(br);
         } else {
             URI uri = URI.create(
                     ServletUriComponentsBuilder
@@ -40,6 +34,16 @@ public class RecipeController {
                             .path("/recipes/" + savedRecipe).toUriString());
             return ResponseEntity.created(uri).body("Product has been created");
         }
+    }
+
+    static ResponseEntity<String> getStringResponseEntity(BindingResult br) {
+        StringBuilder sb = new StringBuilder();
+        for (FieldError fe : br.getFieldErrors()) {
+            sb.append(fe.getField() + ": ");
+            sb.append(fe.getDefaultMessage());
+            sb.append("\n");
+        }
+        return new ResponseEntity<>(sb.toString(), HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping("")

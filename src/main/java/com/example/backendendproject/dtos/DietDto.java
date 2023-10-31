@@ -4,7 +4,6 @@ import com.example.backendendproject.Models.Diet;
 import com.example.backendendproject.Models.Goal;
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.validation.constraints.NotBlank;
 
 @Setter
